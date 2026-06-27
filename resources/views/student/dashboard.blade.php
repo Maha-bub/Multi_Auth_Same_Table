@@ -8,5 +8,9 @@
 </head>
 <body>
     <h3>hello student</h3>
+    <form action="{{ route('logout') }}" method="post">
+        @csrf
+        <button  name="submit" >Logout</button>
+    </form>
 </body>
 </html>

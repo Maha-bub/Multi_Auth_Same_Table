@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,7 @@ Route::middleware(['auth', 'role:teacher'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:student'])->group(function () {
-    Route::get('/student/dashboard', [TeacherController::class, 'dashboard'])->name('student.dashboard');
+    Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
 });
 
 require __DIR__ . '/auth.php';
