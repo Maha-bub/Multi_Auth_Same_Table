@@ -21,6 +21,16 @@ Route::middleware('auth')->group(function () {
 
 
 
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
 
+Route::middleware(['auth', 'role:teacher'])->group(function () {
+    Route::get('/teacher/dashboard', [TeacherController::class, 'dashboard'])->name('teacher.dashboard');
+});
+
+Route::middleware(['auth', 'role:student'])->group(function () {
+    Route::get('/student/dashboard', [TeacherController::class, 'dashboard'])->name('student.dashboard');
+});
 
 require __DIR__ . '/auth.php';
